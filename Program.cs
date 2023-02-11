@@ -116,6 +116,21 @@ class MyApp
         }
     }
 
+    // Exercise 7:
+    static readonly string textFile = "text.txt";
+
+    static void readFileAndPrint()
+    {
+
+
+        string text = File.ReadAllText(textFile);
+        text = text.Replace(Environment.NewLine, " ");
+        text = text.ToLower();
+
+        System.Console.WriteLine(text);
+
+    }
+
     static void Main()
     {
 
@@ -142,6 +157,11 @@ class MyApp
         // Exercise 5: Read a sequence of numbers and print them in reverse order
 
         // printReverse();
+
+
+        // Exercise 7: Read a file and print the contents in a single line and lowercased
+
+        readFileAndPrint();
 
     }
 
