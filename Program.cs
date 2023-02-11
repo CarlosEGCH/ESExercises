@@ -93,6 +93,29 @@ class MyApp
         System.Console.WriteLine("Average: " + res / 10);
     }
 
+
+    // Exercise 5:
+
+    static void printReverse()
+    {
+
+
+        System.Console.WriteLine("Write a sequence of numbers separated ONLY by colon ( , ): ");
+        String? str = Console.ReadLine();
+
+        String[] separator = { "," };
+        Int32 count = 10;
+
+        String[]? strlist = str.Split(separator, count,
+               StringSplitOptions.RemoveEmptyEntries);
+
+        System.Console.WriteLine("Reverse order:");
+        for (int i = 9; i >= 0; i--)
+        {
+            System.Console.Write(strlist[i] + ",");
+        }
+    }
+
     static void Main()
     {
 
@@ -114,6 +137,11 @@ class MyApp
         // Exercise 4: Read a list of numbers and print out the average
 
         // averageInput();
+
+
+        // Exercise 5: Read a sequence of numbers and print them in reverse order
+
+        // printReverse();
 
     }
 
