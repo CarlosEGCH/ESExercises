@@ -65,6 +65,34 @@ class MyApp
 
     }
 
+
+    // Exercise 4:
+
+    static void averageInput()
+    {
+
+        // Taking a string
+        System.Console.WriteLine("Write 10 numbers separated ONLY by colon ( , )");
+        String str = Console.ReadLine();
+
+        String[] separator = { "," };
+        Int32 count = 10;
+
+        // using the method
+        String[] strlist = str.Split(separator, count,
+               StringSplitOptions.RemoveEmptyEntries);
+
+
+        int res = 0;
+
+        foreach (String s in strlist)
+        {
+            res = res + Convert.ToInt32(s);
+        }
+
+        System.Console.WriteLine("Average: " + res / 10);
+    }
+
     static void Main()
     {
 
@@ -77,9 +105,15 @@ class MyApp
 
         // System.Console.WriteLine(leibniz(200));
 
+
         // Exercise 3: Read 2 numbers and print out the biggest
 
         // readBigger();
+
+
+        // Exercise 4: Read a list of numbers and print out the average
+
+        // averageInput();
 
     }
 
