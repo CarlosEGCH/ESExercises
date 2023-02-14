@@ -73,7 +73,7 @@ class MyApp
 
         // Taking a string
         System.Console.WriteLine("Write 10 numbers separated ONLY by colon ( , )");
-        String str = Console.ReadLine();
+        String? str = Console.ReadLine();
 
         String[] separator = { "," };
         Int32 count = 10;
@@ -106,13 +106,13 @@ class MyApp
         String[] separator = { "," };
         Int32 count = 10;
 
-        String[]? strlist = str.Split(separator, count,
+        String[]? strlist = str?.Split(separator, count,
                StringSplitOptions.RemoveEmptyEntries);
 
         System.Console.WriteLine("Reverse order:");
         for (int i = 9; i >= 0; i--)
         {
-            System.Console.Write(strlist[i] + ",");
+            System.Console.Write(strlist?[i] + ",");
         }
     }
 
@@ -122,12 +122,63 @@ class MyApp
     static void readFileAndPrint()
     {
 
-
         string text = File.ReadAllText(textFile);
         text = text.Replace(Environment.NewLine, " ");
         text = text.ToLower();
 
         System.Console.WriteLine(text);
+
+    }
+
+
+    // Exercise 8:
+
+    static void readNumbersAndCalculate()
+    {
+
+        System.Console.Write("Write a decimal number: ");
+        int? num1 = Convert.ToInt32(Console.ReadLine());
+
+        System.Console.Write("Write another decimal number: ");
+        int? num2 = Convert.ToInt32(Console.ReadLine());
+
+        for (; ; )
+        {
+
+            System.Console.WriteLine("Choose an Option: ");
+            System.Console.WriteLine("1) Add");
+            System.Console.WriteLine("2) Subtract");
+            System.Console.WriteLine("3) Multiply");
+            System.Console.WriteLine("4) Divide");
+            System.Console.WriteLine("0) Exit");
+
+            int option = Convert.ToInt32(Console.ReadLine());
+
+            switch (option)
+            {
+
+                case 1:
+                    System.Console.WriteLine(num1 + " + " + num2 + " = " + (num1 + num2));
+                    break;
+                case 2:
+                    System.Console.WriteLine(num1 + " - " + num2 + " = " + (num1 - num2));
+                    break;
+                case 3:
+                    System.Console.WriteLine(num1 + " x " + num2 + " = " + (num1 * num2));
+                    break;
+                case 4:
+                    System.Console.WriteLine(num1 + " + " + num2 + " = " + (num1 / num2));
+                    break;
+                case 0:
+                    System.Console.WriteLine("Exiting the program...");
+                    return;
+                default:
+                    System.Console.WriteLine("Please choose an existing option");
+                    break;
+            }
+
+        }
+
 
     }
 
@@ -161,7 +212,12 @@ class MyApp
 
         // Exercise 7: Read a file and print the contents in a single line and lowercased
 
-        readFileAndPrint();
+        // readFileAndPrint();
+
+
+        // Exercise 8: Read two decimal numbers and allow the user to choose an option (Calculator).
+
+        readNumbersAndCalculate();
 
     }
 
