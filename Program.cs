@@ -1,29 +1,43 @@
-﻿
+﻿using System.Collections.Generic;
 
 class MyApp
 {
 
     // Exercise 1:
 
-    static int fibonacci(int n)
-    {
 
-        // 1, 1, 2, 3, 5, 8, 13
-        if (n == 0 || n == 1)
+    public class Fib
+    {
+        private Dictionary<int, long> memo = new Dictionary<int, long>();
+
+        public long fibonacci(int n)
         {
-            return 1;
+
+            if (memo.ContainsKey(n))
+            {
+                return memo[n];
+            }
+
+            if (n == 0 || n == 1)
+            {
+                memo[n] = n;
+                return n;
+            }
+
+            long result = fibonacci(n - 1) + fibonacci(n - 2);
+            memo[n] = result;
+            return result;
         }
 
-        return fibonacci(n - 1) + fibonacci(n - 2);
-    }
-
-    static void printFibonacci(int n)
-    {
-        for (int i = 0; i < n; i++)
+        public void printFibonacci(int n)
         {
-            System.Console.Write(fibonacci(i) + ", ");
+            for (int i = 0; i < n; i++)
+            {
+                System.Console.Write(i + 1 + "nth: " + fibonacci(i) + ", ");
+            }
         }
     }
+
 
     // Exercise 2:
 
@@ -187,7 +201,9 @@ class MyApp
 
         // Exercise 1: Print the first 20 Fibonacci numbers
 
-        // printFibonacci(20);
+        Fib myFib = new Fib();
+
+        myFib.printFibonacci(50);
 
 
         // Exercise 2: Print the Nth iteration of Leibniz's Pi Formula
@@ -217,7 +233,7 @@ class MyApp
 
         // Exercise 8: Read two decimal numbers and allow the user to choose an option (Calculator).
 
-        readNumbersAndCalculate();
+        // readNumbersAndCalculate();
 
     }
 
