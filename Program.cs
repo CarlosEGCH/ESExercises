@@ -31,9 +31,9 @@ class MyApp
 
         public void printFibonacci(int n)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 1; i <= n; i++)
             {
-                System.Console.Write(i + 1 + "nth: " + fibonacci(i) + ", ");
+                System.Console.WriteLine(i + "nth: " + fibonacci(i) + ", ");
             }
         }
     }
@@ -203,7 +203,7 @@ class MyApp
 
         Fib myFib = new Fib();
 
-        myFib.printFibonacci(50);
+        myFib.printFibonacci(70);
 
 
         // Exercise 2: Print the Nth iteration of Leibniz's Pi Formula
